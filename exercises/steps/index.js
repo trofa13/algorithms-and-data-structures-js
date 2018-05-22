@@ -17,6 +17,37 @@
 //       '### '
 //       '####'
 
-function steps(n) {}
+// 2) Recursive solution
+function steps(n, row = 0, stair = '') {
+    if (n === row) {
+        return;
+    }
+
+    if (stair.length === n) {
+        console.log(stair);
+        return steps(n, row + 1);
+    }
+    
+    const add = stair.length <= row ? '#' : ' ';
+    steps(n, row, stair + add);
+}
 
 module.exports = steps;
+
+
+// 1) Itertive solution
+// function steps(n) {
+//     for (let row = 0; row < n; row++) {
+//         let stair = '';
+
+//         for (let column = 0; column < n; column++) {
+//             if (column <= krow) {
+//                 stair += '#';
+//             } else {
+//                 stair += ' ';
+//             }
+//         }
+
+//         console.log(stair)
+//     }
+// }
